@@ -1,0 +1,59 @@
+build/machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_exti.c.o: \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_exti.c \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_exti.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/CMSIS-ST/Device/ST/STM32F4xx/Include/stm32f4xx.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/CMSIS/Include/core_cm4.h \
+ /opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/lib/gcc/arm-none-eabi/4.9.3/include/stdint.h \
+ /opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/stdint.h \
+ /opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/machine/_default_types.h \
+ /opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/sys/features.h \
+ /opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/sys/_intsup.h \
+ /opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/sys/_stdint.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/CMSIS/Include/core_cmInstr.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/CMSIS/Include/core_cmFunc.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/CMSIS/Include/core_cmSimd.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/CMSIS-ST/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/stm32f4xx_conf.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_exti.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_gpio.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_rcc.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_syscfg.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/misc.h
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_exti.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/CMSIS-ST/Device/ST/STM32F4xx/Include/stm32f4xx.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/CMSIS/Include/core_cm4.h:
+
+/opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/lib/gcc/arm-none-eabi/4.9.3/include/stdint.h:
+
+/opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/stdint.h:
+
+/opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/machine/_default_types.h:
+
+/opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/sys/features.h:
+
+/opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/sys/_intsup.h:
+
+/opt/homebrew/Cellar/gcc-arm-none-eabi-49/20150925/arm-none-eabi/include/sys/_stdint.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/CMSIS/Include/core_cmInstr.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/CMSIS/Include/core_cmFunc.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/CMSIS/Include/core_cmSimd.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/CMSIS-ST/Device/ST/STM32F4xx/Include/system_stm32f4xx.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/stm32f4xx_conf.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_exti.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_gpio.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_rcc.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/stm32f4xx_syscfg.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/STM32F4xx_StdPeriph_Driver/misc.h:

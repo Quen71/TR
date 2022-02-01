@@ -1,0 +1,22 @@
+build/appli_base/tpl_invoque.S.o: appli_base/tpl_invoque.S \
+ /Users/quentinlebreton/git/trampoline//os/tpl_os_application_def.h \
+ appli_base/tpl_app_define.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_config_def.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_config_check.h \
+ appli_base/tpl_service_ids.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_as_memmap.h \
+ appli_base/AsMemMap.h
+
+/Users/quentinlebreton/git/trampoline//os/tpl_os_application_def.h:
+
+appli_base/tpl_app_define.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_config_def.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_config_check.h:
+
+appli_base/tpl_service_ids.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_as_memmap.h:
+
+appli_base/AsMemMap.h:

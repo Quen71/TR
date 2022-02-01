@@ -1,0 +1,25 @@
+build/appli_base/tpl_primary_irq.S.o: appli_base/tpl_primary_irq.S \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/tpl_assembler.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/tpl_asm_definitions.h \
+ /Users/quentinlebreton/git/trampoline//machines/cortex/tpl_os_kernel_stack.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_as_memmap.h \
+ appli_base/tpl_app_define.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_config_def.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_config_check.h \
+ appli_base/AsMemMap.h
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/tpl_assembler.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/tpl_asm_definitions.h:
+
+/Users/quentinlebreton/git/trampoline//machines/cortex/tpl_os_kernel_stack.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_as_memmap.h:
+
+appli_base/tpl_app_define.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_config_def.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_config_check.h:
+
+appli_base/AsMemMap.h:
