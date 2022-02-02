@@ -12,14 +12,6 @@ FUNC(int, OS_APPL_CODE) main(void)
   return 0;
 }
 
-TASK(blink)
-{
-  test = TIM2->CNT;
-  ledToggle(BLUE);
-  TIM2->CNT = 0;
-  TerminateTask();
-}
-
 TASK(a_task)
 {
   ActivateTask(task_1);

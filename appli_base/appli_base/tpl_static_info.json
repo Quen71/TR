@@ -1,31 +1,6 @@
 
 {
-  "alarm" : 
-  [
-    
-    {
-      "ACTION" : "ACTIVATETASK",
-      "ACTION_S" : 
-      {
-        "TASK" : "a_task"
-      },
-      "AUTOSTART" : "true",
-      "AUTOSTART_S" : 
-      {
-        "ALARMTIME" : 250,
-        "APPMODE" : 
-        [
-          
-          {
-            "VALUE" : "std"
-          }
-        ],
-        "CYCLETIME" : 250
-      },
-      "COUNTER" : "SystemCounter",
-      "NAME" : "blink_blink"
-    }
-  ],
+  "alarm" : [],
   "event" : [],
   "ioc" : [],
   "isr" : [],
@@ -34,18 +9,6 @@
   "task" : 
   [
     
-    {
-      "ACTIVATION" : 1,
-      "AUTOSTART" : "false",
-      "KIND" : "Task",
-      "NAME" : "blink",
-      "NONPREEMPTABLE" : "false",
-      "PRIORITY" : 1,
-      "SCHEDULE" : "FULL",
-      "STACKSIZE" : 300,
-      "USEFLOAT" : "false",
-      "USEINTERNALRESOURCE" : "false"
-    },    
     {
       "ACTIVATION" : 1,
       "AUTOSTART" : "false",
@@ -60,7 +23,17 @@
     },    
     {
       "ACTIVATION" : 1,
-      "AUTOSTART" : "false",
+      "AUTOSTART" : "true",
+      "AUTOSTART_S" : 
+      {
+        "APPMODE" : 
+        [
+          
+          {
+            "VALUE" : "std"
+          }
+        ]
+      },
       "KIND" : "Task",
       "NAME" : "a_task",
       "NONPREEMPTABLE" : "false",

@@ -39,16 +39,11 @@ CPU my_cpu {
   
   APPMODE std {};
   
-  TASK blink {
-    PRIORITY = 1;
-    AUTOSTART = FALSE;
-    ACTIVATION = 1;
-    SCHEDULE = FULL;
-  };
-  
   TASK a_task {
     PRIORITY = 5;
-    AUTOSTART = FALSE;
+    AUTOSTART = TRUE {
+      APPMODE = std;
+    };
     ACTIVATION = 1;
     SCHEDULE = FULL;
   };
@@ -65,17 +60,5 @@ CPU my_cpu {
     AUTOSTART = FALSE;
     ACTIVATION = 1;
     SCHEDULE = FULL;
-  };
-
-  ALARM blink_blink {
-    COUNTER = SystemCounter;
-    ACTION = ACTIVATETASK {
-      TASK = a_task;
-    };
-    AUTOSTART = TRUE {
-      APPMODE = std;
-      ALARMTIME = 250;
-      CYCLETIME = 250;
-    };
   };
 };
