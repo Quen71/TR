@@ -40,25 +40,19 @@ CPU my_cpu {
   APPMODE std {};
   
   TASK a_task {
-    PRIORITY = 5;
+    PRIORITY = 1;
     AUTOSTART = TRUE {
       APPMODE = std;
     };
     ACTIVATION = 1;
-    SCHEDULE = NON;
+    SCHEDULE = FULL;
   };
 
-  TASK task_1 {
-    PRIORITY = 1;
+  TASK blink_task {
+    PRIORITY = 5;
     AUTOSTART = FALSE;
     ACTIVATION = 1;
     SCHEDULE = FULL;
   };
 
-  TASK task_2 {
-    PRIORITY = 8;
-    AUTOSTART = FALSE;
-    ACTIVATION = 1;
-    SCHEDULE = FULL;
-  };
 };

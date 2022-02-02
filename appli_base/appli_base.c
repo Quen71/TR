@@ -14,27 +14,17 @@ FUNC(int, OS_APPL_CODE) main(void)
 
 TASK(a_task)
 {
-  ActivateTask(task_1);
-  ActivateTask(task_2);
-  Schedule();
-  delay(3000);
+  ActivateTask(task_blink);
+  ChainTask(task_blink);
+  TerminateTask();
+}
+
+TASK(blink_task)
+{
   ledOn(BLUE);
-  TIM2->CNT = 0;
-  TerminateTask();
-}
-
-TASK(task_1)
-{
-  delay(3000);
-  ledOn(GREEN);
-  TIM2->CNT = 0;
-  TerminateTask();
-}
-
-TASK(task_2)
-{
-  delay(3000);
-  ledOn(RED);
+  delay(500);
+  ledOff(BLUE);
+  delay(500);
   TIM2->CNT = 0;
   TerminateTask();
 }
