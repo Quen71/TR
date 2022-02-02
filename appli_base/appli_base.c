@@ -16,6 +16,7 @@ TASK(a_task)
 {
   ActivateTask(task_1);
   ActivateTask(task_2);
+  Schedule();
   delay(3000);
   ledOn(BLUE);
   TIM2->CNT = 0;

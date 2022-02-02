@@ -5,7 +5,24 @@
   "ioc" : [],
   "isr" : [],
   "message" : [],
-  "resource" : [],
+  "resource" : 
+  [
+    
+    {
+      "ISRUSAGE" : [],
+      "KIND" : "Resource",
+      "NAME" : "INTERNAL_RES_SCHEDULER",
+      "PRIORITY" : 3,
+      "RESOURCEPROPERTY" : "INTERNAL",
+      "TASKUSAGE" : 
+      [
+        
+        {
+          "VALUE" : "a_task"
+        }
+      ]
+    }
+  ],
   "task" : 
   [
     
@@ -36,9 +53,16 @@
       },
       "KIND" : "Task",
       "NAME" : "a_task",
-      "NONPREEMPTABLE" : "false",
+      "NONPREEMPTABLE" : "true",
       "PRIORITY" : 2,
-      "SCHEDULE" : "FULL",
+      "RESOURCE" : 
+      [
+        
+        {
+          "VALUE" : "INTERNAL_RES_SCHEDULER"
+        }
+      ],
+      "SCHEDULE" : "NON",
       "STACKSIZE" : 300,
       "USEFLOAT" : "false",
       "USEINTERNALRESOURCE" : "false"
@@ -49,7 +73,7 @@
       "KIND" : "Task",
       "NAME" : "task_2",
       "NONPREEMPTABLE" : "false",
-      "PRIORITY" : 3,
+      "PRIORITY" : 4,
       "SCHEDULE" : "FULL",
       "STACKSIZE" : 300,
       "USEFLOAT" : "false",

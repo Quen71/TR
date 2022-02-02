@@ -45,7 +45,7 @@ CPU my_cpu {
       APPMODE = std;
     };
     ACTIVATION = 1;
-    SCHEDULE = FULL;
+    SCHEDULE = NON;
   };
 
   TASK task_1 {
