@@ -51,6 +51,7 @@ build/machines/cortex/tpl_machine_cortex.c.o: \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_interrupt.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_task.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_resource.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_os_event.h \
  appli_base/tpl_cortex_definitions.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_memmap.h
 
@@ -157,6 +158,8 @@ appli_base/tpl_os.h:
 /Users/quentinlebreton/git/trampoline//os/tpl_os_task.h:
 
 /Users/quentinlebreton/git/trampoline//os/tpl_os_resource.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_os_event.h:
 
 appli_base/tpl_cortex_definitions.h:
 

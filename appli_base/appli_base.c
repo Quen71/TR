@@ -12,20 +12,67 @@ FUNC(int, OS_APPL_CODE) main(void)
   return 0;
 }
 
-TASK(a_task)
+TASK(T_master)
 {
-  ActivateTask(task_blink);
-  ChainTask(task_blink);
+  ActivateTask(T_1);
+  ActivateTask(T_2);
+  ActivateTask(T_3);
+
+  EventMaskType event_got;
+  
+  while (1)
+  {
+    WaitEvent(ev1 | ev2 | ev3);
+    GetEvent(T_master, &event_got);
+
+    if (event_got & ev1)
+    {
+      ClearEvent(ev1);
+      ActivateTask(T_1);
+    }
+    if (event_got & ev2)
+    {
+      ClearEvent(ev2);
+      ActivateTask(T_2);
+    }
+    if (event_got & ev3)
+    {
+      ClearEvent(ev3);
+      ActivateTask(T_3);
+    }
+  }
+  
+
   TerminateTask();
 }
 
-TASK(blink_task)
+TASK(T_1)
 {
   ledOn(BLUE);
   delay(500);
   ledOff(BLUE);
   delay(500);
-  TIM2->CNT = 0;
+  SetEvent(T_master, ev1);
+  TerminateTask();
+}
+
+TASK(T_2)
+{
+  ledOn(RED);
+  delay(500);
+  ledOff(RED);
+  delay(500);
+  SetEvent(T_master, ev2);
+  TerminateTask();
+}
+
+TASK(T_3)
+{
+  ledOn(GREEN);
+  delay(500);
+  ledOff(GREEN);
+  delay(500);
+  SetEvent(T_master, ev3);
   TerminateTask();
 }
 

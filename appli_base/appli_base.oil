@@ -38,20 +38,49 @@ CPU my_cpu {
   };
   
   APPMODE std {};
+
+  EVENT ev1 {
+    MASK = AUTO; //definition of the MASK computed
+  };
+
+  EVENT ev2 {
+    MASK = AUTO; //definition of the MASK computed
+  };
+
+  EVENT ev3 {
+    MASK = AUTO; //definition of the MASK computed
+  };
   
-  TASK a_task {
-    PRIORITY = 1;
+  TASK T_master {
+    PRIORITY = 8;
     AUTOSTART = TRUE {
       APPMODE = std;
     };
     ACTIVATION = 1;
     SCHEDULE = FULL;
+    EVENT = ev1;
+    EVENT = ev2;
+    EVENT = ev3;
   };
 
-  TASK blink_task {
+  TASK T_1 {
     PRIORITY = 5;
     AUTOSTART = FALSE;
-    ACTIVATION = 1;
+    ACTIVATION = 2;
+    SCHEDULE = FULL;
+  };
+
+  TASK T_2 {
+    PRIORITY = 5;
+    AUTOSTART = FALSE;
+    ACTIVATION = 2;
+    SCHEDULE = FULL;
+  };
+
+  TASK T_3 {
+    PRIORITY = 5;
+    AUTOSTART = FALSE;
+    ACTIVATION = 2;
     SCHEDULE = FULL;
   };
 

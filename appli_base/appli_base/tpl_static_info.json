@@ -1,43 +1,32 @@
 
 {
   "alarm" : [],
-  "event" : [],
+  "event" : 
+  [
+    
+    {
+      "MASK" : 1,
+      "NAME" : "ev2",
+      "REF" : 1
+    },    
+    {
+      "MASK" : 2,
+      "NAME" : "ev3",
+      "REF" : 1
+    },    
+    {
+      "MASK" : 4,
+      "NAME" : "ev1",
+      "REF" : 1
+    }
+  ],
   "ioc" : [],
   "isr" : [],
   "message" : [],
-  "resource" : 
-  [
-    
-    {
-      "ISRUSAGE" : [],
-      "KIND" : "Resource",
-      "NAME" : "INTERNAL_RES_SCHEDULER",
-      "PRIORITY" : 3,
-      "RESOURCEPROPERTY" : "INTERNAL",
-      "TASKUSAGE" : 
-      [
-        
-        {
-          "VALUE" : "a_task"
-        }
-      ]
-    }
-  ],
+  "resource" : [],
   "task" : 
   [
     
-    {
-      "ACTIVATION" : 1,
-      "AUTOSTART" : "false",
-      "KIND" : "Task",
-      "NAME" : "task_1",
-      "NONPREEMPTABLE" : "false",
-      "PRIORITY" : 1,
-      "SCHEDULE" : "FULL",
-      "STACKSIZE" : 300,
-      "USEFLOAT" : "false",
-      "USEINTERNALRESOURCE" : "false"
-    },    
     {
       "ACTIVATION" : 1,
       "AUTOSTART" : "true",
@@ -51,29 +40,59 @@
           }
         ]
       },
-      "KIND" : "Task",
-      "NAME" : "a_task",
-      "NONPREEMPTABLE" : "true",
-      "PRIORITY" : 2,
-      "RESOURCE" : 
+      "EVENT" : 
       [
         
         {
-          "VALUE" : "INTERNAL_RES_SCHEDULER"
+          "VALUE" : "ev1"
+        },        
+        {
+          "VALUE" : "ev2"
+        },        
+        {
+          "VALUE" : "ev3"
         }
       ],
-      "SCHEDULE" : "NON",
+      "KIND" : "Task",
+      "NAME" : "T_master",
+      "NONPREEMPTABLE" : "false",
+      "PRIORITY" : 2,
+      "SCHEDULE" : "FULL",
       "STACKSIZE" : 300,
       "USEFLOAT" : "false",
       "USEINTERNALRESOURCE" : "false"
     },    
     {
-      "ACTIVATION" : 1,
+      "ACTIVATION" : 2,
       "AUTOSTART" : "false",
       "KIND" : "Task",
-      "NAME" : "task_2",
+      "NAME" : "T_2",
       "NONPREEMPTABLE" : "false",
-      "PRIORITY" : 4,
+      "PRIORITY" : 1,
+      "SCHEDULE" : "FULL",
+      "STACKSIZE" : 300,
+      "USEFLOAT" : "false",
+      "USEINTERNALRESOURCE" : "false"
+    },    
+    {
+      "ACTIVATION" : 2,
+      "AUTOSTART" : "false",
+      "KIND" : "Task",
+      "NAME" : "T_3",
+      "NONPREEMPTABLE" : "false",
+      "PRIORITY" : 1,
+      "SCHEDULE" : "FULL",
+      "STACKSIZE" : 300,
+      "USEFLOAT" : "false",
+      "USEINTERNALRESOURCE" : "false"
+    },    
+    {
+      "ACTIVATION" : 2,
+      "AUTOSTART" : "false",
+      "KIND" : "Task",
+      "NAME" : "T_1",
+      "NONPREEMPTABLE" : "false",
+      "PRIORITY" : 1,
       "SCHEDULE" : "FULL",
       "STACKSIZE" : 300,
       "USEFLOAT" : "false",

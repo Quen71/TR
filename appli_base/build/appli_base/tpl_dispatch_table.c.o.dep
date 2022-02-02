@@ -47,6 +47,9 @@ build/appli_base/tpl_dispatch_table.c.o: appli_base/tpl_dispatch_table.c \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_interrupt_kernel.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_task_kernel.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_resource_kernel.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_os_event_kernel.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_os_types.h \
+ /Users/quentinlebreton/git/trampoline//os/tpl_os_task_kernel.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_memmap.h
 
 /Users/quentinlebreton/git/trampoline//os/tpl_dispatch_table.h:
@@ -146,5 +149,11 @@ appli_base/cmsis_wrapper.h:
 /Users/quentinlebreton/git/trampoline//os/tpl_os_task_kernel.h:
 
 /Users/quentinlebreton/git/trampoline//os/tpl_os_resource_kernel.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_os_event_kernel.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_os_types.h:
+
+/Users/quentinlebreton/git/trampoline//os/tpl_os_task_kernel.h:
 
 /Users/quentinlebreton/git/trampoline//os/tpl_memmap.h:
