@@ -39,48 +39,21 @@ CPU my_cpu {
   
   APPMODE std {};
 
-  EVENT ev1 {
-    MASK = AUTO; //definition of the MASK computed
-  };
-
-  EVENT ev2 {
-    MASK = AUTO; //definition of the MASK computed
-  };
-
-  EVENT ev3 {
-    MASK = AUTO; //definition of the MASK computed
-  };
-  
-  TASK T_master {
-    PRIORITY = 8;
-    AUTOSTART = TRUE {
-      APPMODE = std;
+  ISR button {
+    CATEGORY = 2;
+    PRIORITY = 30;
+    SOURCE = EXTI0_IRQ {
+      PIN = PA0 {
+        PULL = DOWN;
+        TRIGGER = FALLING;
+      };
     };
+  };
+
+  TASK T_blink {
+    PRIORITY = 5;
+    AUTOSTART = FALSE;
     ACTIVATION = 1;
-    SCHEDULE = FULL;
-    EVENT = ev1;
-    EVENT = ev2;
-    EVENT = ev3;
-  };
-
-  TASK T_1 {
-    PRIORITY = 5;
-    AUTOSTART = FALSE;
-    ACTIVATION = 2;
-    SCHEDULE = FULL;
-  };
-
-  TASK T_2 {
-    PRIORITY = 5;
-    AUTOSTART = FALSE;
-    ACTIVATION = 2;
-    SCHEDULE = FULL;
-  };
-
-  TASK T_3 {
-    PRIORITY = 5;
-    AUTOSTART = FALSE;
-    ACTIVATION = 2;
     SCHEDULE = FULL;
   };
 

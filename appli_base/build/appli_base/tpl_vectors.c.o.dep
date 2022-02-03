@@ -46,7 +46,6 @@ build/appli_base/tpl_vectors.c.o: appli_base/tpl_vectors.c \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_interrupt.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_task.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_resource.h \
- /Users/quentinlebreton/git/trampoline//os/tpl_os_event.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_interrupt_kernel.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_kernel.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_multicore_macros.h
@@ -148,8 +147,6 @@ appli_base/MemMap.h:
 /Users/quentinlebreton/git/trampoline//os/tpl_os_task.h:
 
 /Users/quentinlebreton/git/trampoline//os/tpl_os_resource.h:
-
-/Users/quentinlebreton/git/trampoline//os/tpl_os_event.h:
 
 /Users/quentinlebreton/git/trampoline//os/tpl_os_interrupt_kernel.h:
 

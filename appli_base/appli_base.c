@@ -2,6 +2,7 @@
 #include "tpl_os.h"
 
 int test = 0;
+volatile int led = 0;
 
 FUNC(int, OS_APPL_CODE) main(void)
 {
@@ -12,67 +13,43 @@ FUNC(int, OS_APPL_CODE) main(void)
   return 0;
 }
 
-TASK(T_master)
+ISR (button)
 {
-  ActivateTask(T_1);
-  ActivateTask(T_2);
-  ActivateTask(T_3);
-
-  EventMaskType event_got;
-  
-  while (1)
+  ActivateTask(T_blink);
+  led++;
+  if (led == 4)
   {
-    WaitEvent(ev1 | ev2 | ev3);
-    GetEvent(T_master, &event_got);
-
-    if (event_got & ev1)
-    {
-      ClearEvent(ev1);
-      ActivateTask(T_1);
-    }
-    if (event_got & ev2)
-    {
-      ClearEvent(ev2);
-      ActivateTask(T_2);
-    }
-    if (event_got & ev3)
-    {
-      ClearEvent(ev3);
-      ActivateTask(T_3);
-    }
+    led = 0;
   }
-  
-
-  TerminateTask();
 }
 
-TASK(T_1)
+TASK(T_blink)
 {
-  ledOn(BLUE);
-  delay(500);
-  ledOff(BLUE);
-  delay(500);
-  SetEvent(T_master, ev1);
-  TerminateTask();
-}
+  if (led == 0)
+  {
+    ledOn(GREEN);
+    delay(500);
+    ledOff(GREEN);
+  }
+  if (led == 1)
+  {
+    ledOn(BLUE);
+    delay(500);
+    ledOff(BLUE);
+  } 
+  if (led == 2)
+  {
+    ledOn(RED);
+    delay(500);
+    ledOff(RED);
+  }
+  if (led == 3)
+  {
+    ledOn(ORANGE);
+    delay(500);
+    ledOff(ORANGE);
+  }
 
-TASK(T_2)
-{
-  ledOn(RED);
-  delay(500);
-  ledOff(RED);
-  delay(500);
-  SetEvent(T_master, ev2);
-  TerminateTask();
-}
-
-TASK(T_3)
-{
-  ledOn(GREEN);
-  delay(500);
-  ledOff(GREEN);
-  delay(500);
-  SetEvent(T_master, ev3);
   TerminateTask();
 }
 
