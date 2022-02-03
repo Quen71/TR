@@ -15,22 +15,52 @@ FUNC(int, OS_APPL_CODE) main(void)
 
 ISR (button)
 {
-  ActivateTask(T_blink);
   if (led == 0)
+  {
     led = 1;
-  else
+  }
+  else 
+  {
     led = 0;
+  }
 }
 
-TASK(T_blink)
+TASK(T_chase)
 {
+  EventMaskType event_got;
+  
   while (1)
   {
-    if (led == 0)
+    WaitEvent(ev1 | ev2 | ev3 | ev4);
+    GetEvent(T_chase, &event_got);
+
+    if (event_got & ev1)
     {
-      WaitEvent(ev1);
       ClearEvent(ev1);
-      ledToggle(BLUE);
+      ledOn(BLUE);
+      delay(250);
+      ledOff(BLUE);
+    }
+    if (event_got & ev2)
+    {
+      ClearEvent(ev2);
+      ledOn(GREEN);
+      delay(250);
+      ledOff(GREEN);
+    }
+    if (event_got & ev3)
+    {
+      ClearEvent(ev3);
+      ledOn(ORANGE);
+      delay(250);
+      ledOff(ORANGE);
+    }
+    if (event_got & ev4)
+    {
+      ClearEvent(ev4);
+      ledOn(RED);
+      delay(250);
+      ledOff(RED);
     }
   }
   TerminateTask();

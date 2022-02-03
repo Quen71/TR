@@ -109,7 +109,7 @@ SECTIONS {
   /* --- Sections for application code --- */
 
   /* --- Sections for code of tasks and ISR --- */
-    *(.Task_T_blinkCode)
+    *(.Task_T_chaseCode)
 
     *(.ISR_buttonCode)
 
@@ -129,26 +129,26 @@ SECTIONS {
 SECTIONS {
   . = ALIGN(4);
   procconst : {
-      *(.Task_T_blink_SEC_CONST_32BIT)
-      *(.Task_T_blink_SEC_CALIB_32BIT)
-      *(.Task_T_blink_SEC_CARTO_32BIT)
-      *(.Task_T_blink_SEC_CONFIG_DATA_32BIT)
-      *(.Task_T_blink_SEC_CONST_16BIT)
-      *(.Task_T_blink_SEC_CALIB_16BIT)
-      *(.Task_T_blink_SEC_CARTO_16BIT)
-      *(.Task_T_blink_SEC_CONFIG_DATA_16BIT)
-      *(.Task_T_blink_SEC_CONST_8BIT)
-      *(.Task_T_blink_SEC_CALIB_8BIT)
-      *(.Task_T_blink_SEC_CARTO_8BIT)
-      *(.Task_T_blink_SEC_CONFIG_DATA_8BIT)
-      *(.Task_T_blink_SEC_CONST_BOOLEAN)
-      *(.Task_T_blink_SEC_CALIB_BOOLEAN)
-      *(.Task_T_blink_SEC_CARTO_BOOLEAN)
-      *(.Task_T_blink_SEC_CONFIG_DATA_BOOLEAN)
-      *(.Task_T_blink_SEC_CONST_UNSPECIFIED)
-      *(.Task_T_blink_SEC_CALIB_UNSPECIFIED)
-      *(.Task_T_blink_SEC_CARTO_UNSPECIFIED)
-      *(.Task_T_blink_SEC_CONFIG_DATA_UNSPECIFIED)
+      *(.Task_T_chase_SEC_CONST_32BIT)
+      *(.Task_T_chase_SEC_CALIB_32BIT)
+      *(.Task_T_chase_SEC_CARTO_32BIT)
+      *(.Task_T_chase_SEC_CONFIG_DATA_32BIT)
+      *(.Task_T_chase_SEC_CONST_16BIT)
+      *(.Task_T_chase_SEC_CALIB_16BIT)
+      *(.Task_T_chase_SEC_CARTO_16BIT)
+      *(.Task_T_chase_SEC_CONFIG_DATA_16BIT)
+      *(.Task_T_chase_SEC_CONST_8BIT)
+      *(.Task_T_chase_SEC_CALIB_8BIT)
+      *(.Task_T_chase_SEC_CARTO_8BIT)
+      *(.Task_T_chase_SEC_CONFIG_DATA_8BIT)
+      *(.Task_T_chase_SEC_CONST_BOOLEAN)
+      *(.Task_T_chase_SEC_CALIB_BOOLEAN)
+      *(.Task_T_chase_SEC_CARTO_BOOLEAN)
+      *(.Task_T_chase_SEC_CONFIG_DATA_BOOLEAN)
+      *(.Task_T_chase_SEC_CONST_UNSPECIFIED)
+      *(.Task_T_chase_SEC_CALIB_UNSPECIFIED)
+      *(.Task_T_chase_SEC_CARTO_UNSPECIFIED)
+      *(.Task_T_chase_SEC_CONFIG_DATA_UNSPECIFIED)
       *(.ISR_button_SEC_CONST_32BIT)
       *(.ISR_button_SEC_CALIB_32BIT)
       *(.ISR_button_SEC_CARTO_32BIT)
@@ -247,12 +247,12 @@ SECTIONS {
     *(.data*)          /* .data* sections */
     *(.osVar)
 
-/* Initialized variables section of Task T_blink */
-    *(.Task_T_blink_SEC_VAR_POWER_ON_INIT_32BIT)
-    *(.Task_T_blink_SEC_VAR_POWER_ON_INIT_16BIT)
-    *(.Task_T_blink_SEC_VAR_POWER_ON_INIT_8BIT)
-    *(.Task_T_blink_SEC_VAR_POWER_ON_INIT_BOOLEAN)
-    *(.Task_T_blink_SEC_VAR_POWER_ON_INIT_UNSPECIFIED)
+/* Initialized variables section of Task T_chase */
+    *(.Task_T_chase_SEC_VAR_POWER_ON_INIT_32BIT)
+    *(.Task_T_chase_SEC_VAR_POWER_ON_INIT_16BIT)
+    *(.Task_T_chase_SEC_VAR_POWER_ON_INIT_8BIT)
+    *(.Task_T_chase_SEC_VAR_POWER_ON_INIT_BOOLEAN)
+    *(.Task_T_chase_SEC_VAR_POWER_ON_INIT_UNSPECIFIED)
 
 /* Initialized variables section of ISR button */
     *(.ISR_button_SEC_VAR_POWER_ON_INIT_32BIT)
@@ -270,34 +270,34 @@ SECTIONS {
    * private data of processes
    */
 SECTIONS {
-  .Task_T_blink_SEC_VAR : {
-    . = ALIGN(__SEG_ALIGN_Task_T_blink_VAR_RGN);
-    __SEG_START_Task_T_blink_VAR_RGN = .;
-  /* --- Initialized variables section of Task T_blink */
-    *(.Task_T_blink_SEC_VAR_NOINIT_32BIT)
-    *(.Task_T_blink_SEC_VAR_FAST_32BIT)
-    *(.Task_T_blink_SEC_VAR_32BIT)
-    *(.Task_T_blink_SEC_VAR_NOINIT_16BIT)
-    *(.Task_T_blink_SEC_VAR_FAST_16BIT)
-    *(.Task_T_blink_SEC_VAR_16BIT)
-    *(.Task_T_blink_SEC_VAR_NOINIT_8BIT)
-    *(.Task_T_blink_SEC_VAR_FAST_8BIT)
-    *(.Task_T_blink_SEC_VAR_8BIT)
-    *(.Task_T_blink_SEC_VAR_NOINIT_BOOLEAN)
-    *(.Task_T_blink_SEC_VAR_FAST_BOOLEAN)
-    *(.Task_T_blink_SEC_VAR_BOOLEAN)
-    *(.Task_T_blink_SEC_VAR_NOINIT_UNSPECIFIED)
-    *(.Task_T_blink_SEC_VAR_FAST_UNSPECIFIED)
-    *(.Task_T_blink_SEC_VAR_UNSPECIFIED)
-     __SEG_END_Task_T_blink_VAR_RGN = .;
-     __SEG_SIZE_Task_T_blink_VAR_RGN = (__SEG_END_Task_T_blink_VAR_RGN - __SEG_START_Task_T_blink_VAR_RGN) < 4K ? 4K : __SEG_SIZE_Task_T_blink_VAR_RGN;
-     __SEG_SIZE_Task_T_blink_VAR_RGN = (__SEG_END_Task_T_blink_VAR_RGN - __SEG_START_Task_T_blink_VAR_RGN) < 1K ? 1K : __SEG_SIZE_Task_T_blink_VAR_RGN;
-     __SEG_SIZE_Task_T_blink_VAR_RGN = (__SEG_END_Task_T_blink_VAR_RGN - __SEG_START_Task_T_blink_VAR_RGN) < 512 ? 512 : __SEG_SIZE_Task_T_blink_VAR_RGN;
-     __SEG_SIZE_Task_T_blink_VAR_RGN = (__SEG_END_Task_T_blink_VAR_RGN - __SEG_START_Task_T_blink_VAR_RGN) < 256 ? 256 : __SEG_SIZE_Task_T_blink_VAR_RGN;
-     __SEG_SIZE_Task_T_blink_VAR_RGN = (__SEG_END_Task_T_blink_VAR_RGN - __SEG_START_Task_T_blink_VAR_RGN) < 128 ? 128 : __SEG_SIZE_Task_T_blink_VAR_RGN;
-     __SEG_SIZE_Task_T_blink_VAR_RGN = (__SEG_END_Task_T_blink_VAR_RGN - __SEG_START_Task_T_blink_VAR_RGN) < 64 ? 64 : __SEG_SIZE_Task_T_blink_VAR_RGN;
-     __SEG_SIZE_Task_T_blink_VAR_RGN = (__SEG_END_Task_T_blink_VAR_RGN - __SEG_START_Task_T_blink_VAR_RGN) < 32 ? 32 : __SEG_SIZE_Task_T_blink_VAR_RGN;
-     __SEG_ALIGN_Task_T_blink_VAR_RGN = __SEG_SIZE_Task_T_blink_VAR_RGN;
+  .Task_T_chase_SEC_VAR : {
+    . = ALIGN(__SEG_ALIGN_Task_T_chase_VAR_RGN);
+    __SEG_START_Task_T_chase_VAR_RGN = .;
+  /* --- Initialized variables section of Task T_chase */
+    *(.Task_T_chase_SEC_VAR_NOINIT_32BIT)
+    *(.Task_T_chase_SEC_VAR_FAST_32BIT)
+    *(.Task_T_chase_SEC_VAR_32BIT)
+    *(.Task_T_chase_SEC_VAR_NOINIT_16BIT)
+    *(.Task_T_chase_SEC_VAR_FAST_16BIT)
+    *(.Task_T_chase_SEC_VAR_16BIT)
+    *(.Task_T_chase_SEC_VAR_NOINIT_8BIT)
+    *(.Task_T_chase_SEC_VAR_FAST_8BIT)
+    *(.Task_T_chase_SEC_VAR_8BIT)
+    *(.Task_T_chase_SEC_VAR_NOINIT_BOOLEAN)
+    *(.Task_T_chase_SEC_VAR_FAST_BOOLEAN)
+    *(.Task_T_chase_SEC_VAR_BOOLEAN)
+    *(.Task_T_chase_SEC_VAR_NOINIT_UNSPECIFIED)
+    *(.Task_T_chase_SEC_VAR_FAST_UNSPECIFIED)
+    *(.Task_T_chase_SEC_VAR_UNSPECIFIED)
+     __SEG_END_Task_T_chase_VAR_RGN = .;
+     __SEG_SIZE_Task_T_chase_VAR_RGN = (__SEG_END_Task_T_chase_VAR_RGN - __SEG_START_Task_T_chase_VAR_RGN) < 4K ? 4K : __SEG_SIZE_Task_T_chase_VAR_RGN;
+     __SEG_SIZE_Task_T_chase_VAR_RGN = (__SEG_END_Task_T_chase_VAR_RGN - __SEG_START_Task_T_chase_VAR_RGN) < 1K ? 1K : __SEG_SIZE_Task_T_chase_VAR_RGN;
+     __SEG_SIZE_Task_T_chase_VAR_RGN = (__SEG_END_Task_T_chase_VAR_RGN - __SEG_START_Task_T_chase_VAR_RGN) < 512 ? 512 : __SEG_SIZE_Task_T_chase_VAR_RGN;
+     __SEG_SIZE_Task_T_chase_VAR_RGN = (__SEG_END_Task_T_chase_VAR_RGN - __SEG_START_Task_T_chase_VAR_RGN) < 256 ? 256 : __SEG_SIZE_Task_T_chase_VAR_RGN;
+     __SEG_SIZE_Task_T_chase_VAR_RGN = (__SEG_END_Task_T_chase_VAR_RGN - __SEG_START_Task_T_chase_VAR_RGN) < 128 ? 128 : __SEG_SIZE_Task_T_chase_VAR_RGN;
+     __SEG_SIZE_Task_T_chase_VAR_RGN = (__SEG_END_Task_T_chase_VAR_RGN - __SEG_START_Task_T_chase_VAR_RGN) < 64 ? 64 : __SEG_SIZE_Task_T_chase_VAR_RGN;
+     __SEG_SIZE_Task_T_chase_VAR_RGN = (__SEG_END_Task_T_chase_VAR_RGN - __SEG_START_Task_T_chase_VAR_RGN) < 32 ? 32 : __SEG_SIZE_Task_T_chase_VAR_RGN;
+     __SEG_ALIGN_Task_T_chase_VAR_RGN = __SEG_SIZE_Task_T_chase_VAR_RGN;
   } >RAM
   .ISR_button_SEC_VAR : {
     . = ALIGN(__SEG_ALIGN_ISR_button_VAR_RGN);
@@ -337,21 +337,21 @@ SECTIONS {
 /*----------------------------------------------------------------------------*/
 
 SECTIONS {
-  /* --- Section of stack of Task T_blink  */
-  .Task_T_blink_SEC_STACK : {
-    . = ALIGN(__SEG_ALIGN_Task_T_blink_STACK_RGN);
-    __SEG_START_Task_T_blink_STACK_RGN = .;
-    *(.Task_T_blinkStack)
+  /* --- Section of stack of Task T_chase  */
+  .Task_T_chase_SEC_STACK : {
+    . = ALIGN(__SEG_ALIGN_Task_T_chase_STACK_RGN);
+    __SEG_START_Task_T_chase_STACK_RGN = .;
+    *(.Task_T_chaseStack)
     . = ALIGN(4);
-    __SEG_END_Task_T_blink_STACK_RGN = .;
-    __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 4K ? 4K : __SEG_SIZE_Task_T_blink_STACK_RGN;
-    __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 1K ? 1K : __SEG_SIZE_Task_T_blink_STACK_RGN;
-    __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 512 ? 512 : __SEG_SIZE_Task_T_blink_STACK_RGN;
-    __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 256 ? 256 : __SEG_SIZE_Task_T_blink_STACK_RGN;
-    __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 128 ? 128 : __SEG_SIZE_Task_T_blink_STACK_RGN;
-    __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 64 ? 64 : __SEG_SIZE_Task_T_blink_STACK_RGN;
-    __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 32 ? 32 : __SEG_SIZE_Task_T_blink_STACK_RGN;
-    __SEG_ALIGN_Task_T_blink_STACK_RGN = __SEG_SIZE_Task_T_blink_STACK_RGN;
+    __SEG_END_Task_T_chase_STACK_RGN = .;
+    __SEG_SIZE_Task_T_chase_STACK_RGN = (__SEG_END_Task_T_chase_STACK_RGN - __SEG_START_Task_T_chase_STACK_RGN) < 4K ? 4K : __SEG_SIZE_Task_T_chase_STACK_RGN;
+    __SEG_SIZE_Task_T_chase_STACK_RGN = (__SEG_END_Task_T_chase_STACK_RGN - __SEG_START_Task_T_chase_STACK_RGN) < 1K ? 1K : __SEG_SIZE_Task_T_chase_STACK_RGN;
+    __SEG_SIZE_Task_T_chase_STACK_RGN = (__SEG_END_Task_T_chase_STACK_RGN - __SEG_START_Task_T_chase_STACK_RGN) < 512 ? 512 : __SEG_SIZE_Task_T_chase_STACK_RGN;
+    __SEG_SIZE_Task_T_chase_STACK_RGN = (__SEG_END_Task_T_chase_STACK_RGN - __SEG_START_Task_T_chase_STACK_RGN) < 256 ? 256 : __SEG_SIZE_Task_T_chase_STACK_RGN;
+    __SEG_SIZE_Task_T_chase_STACK_RGN = (__SEG_END_Task_T_chase_STACK_RGN - __SEG_START_Task_T_chase_STACK_RGN) < 128 ? 128 : __SEG_SIZE_Task_T_chase_STACK_RGN;
+    __SEG_SIZE_Task_T_chase_STACK_RGN = (__SEG_END_Task_T_chase_STACK_RGN - __SEG_START_Task_T_chase_STACK_RGN) < 64 ? 64 : __SEG_SIZE_Task_T_chase_STACK_RGN;
+    __SEG_SIZE_Task_T_chase_STACK_RGN = (__SEG_END_Task_T_chase_STACK_RGN - __SEG_START_Task_T_chase_STACK_RGN) < 32 ? 32 : __SEG_SIZE_Task_T_chase_STACK_RGN;
+    __SEG_ALIGN_Task_T_chase_STACK_RGN = __SEG_SIZE_Task_T_chase_STACK_RGN;
   } >RAM
 
   /* --- Section of stack of ISR button  */

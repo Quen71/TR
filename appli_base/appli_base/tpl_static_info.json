@@ -8,7 +8,53 @@
       "ACTION_S" : 
       {
         "EVENT" : "ev1",
-        "TASK" : "T_blink"
+        "TASK" : "T_chase"
+      },
+      "AUTOSTART" : "true",
+      "AUTOSTART_S" : 
+      {
+        "ALARMTIME" : 1,
+        "APPMODE" : 
+        [
+          
+          {
+            "VALUE" : "std"
+          }
+        ],
+        "CYCLETIME" : 250
+      },
+      "COUNTER" : "SystemCounter",
+      "NAME" : "alarm_1"
+    },    
+    {
+      "ACTION" : "SETEVENT",
+      "ACTION_S" : 
+      {
+        "EVENT" : "ev2",
+        "TASK" : "T_chase"
+      },
+      "AUTOSTART" : "true",
+      "AUTOSTART_S" : 
+      {
+        "ALARMTIME" : 250,
+        "APPMODE" : 
+        [
+          
+          {
+            "VALUE" : "std"
+          }
+        ],
+        "CYCLETIME" : 250
+      },
+      "COUNTER" : "SystemCounter",
+      "NAME" : "alarm_2"
+    },    
+    {
+      "ACTION" : "SETEVENT",
+      "ACTION_S" : 
+      {
+        "EVENT" : "ev3",
+        "TASK" : "T_chase"
       },
       "AUTOSTART" : "true",
       "AUTOSTART_S" : 
@@ -21,10 +67,33 @@
             "VALUE" : "std"
           }
         ],
-        "CYCLETIME" : 500
+        "CYCLETIME" : 250
       },
       "COUNTER" : "SystemCounter",
-      "NAME" : "alarm_1"
+      "NAME" : "alarm_3"
+    },    
+    {
+      "ACTION" : "SETEVENT",
+      "ACTION_S" : 
+      {
+        "EVENT" : "ev4",
+        "TASK" : "T_chase"
+      },
+      "AUTOSTART" : "true",
+      "AUTOSTART_S" : 
+      {
+        "ALARMTIME" : 750,
+        "APPMODE" : 
+        [
+          
+          {
+            "VALUE" : "std"
+          }
+        ],
+        "CYCLETIME" : 250
+      },
+      "COUNTER" : "SystemCounter",
+      "NAME" : "alarm_4"
     }
   ],
   "event" : 
@@ -32,7 +101,22 @@
     
     {
       "MASK" : 1,
+      "NAME" : "ev2",
+      "REF" : 1
+    },    
+    {
+      "MASK" : 2,
+      "NAME" : "ev3",
+      "REF" : 1
+    },    
+    {
+      "MASK" : 4,
       "NAME" : "ev1",
+      "REF" : 1
+    },    
+    {
+      "MASK" : 8,
+      "NAME" : "ev4",
       "REF" : 1
     }
   ],
@@ -81,10 +165,19 @@
         
         {
           "VALUE" : "ev1"
+        },        
+        {
+          "VALUE" : "ev2"
+        },        
+        {
+          "VALUE" : "ev3"
+        },        
+        {
+          "VALUE" : "ev4"
         }
       ],
       "KIND" : "Task",
-      "NAME" : "T_blink",
+      "NAME" : "T_chase",
       "NONPREEMPTABLE" : "false",
       "PRIORITY" : 1,
       "SCHEDULE" : "FULL",

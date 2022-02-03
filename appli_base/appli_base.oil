@@ -43,6 +43,57 @@ CPU my_cpu {
     MASK = AUTO;
   };
 
+  EVENT ev2 {
+    MASK = AUTO;
+  };
+
+  EVENT ev3 {
+    MASK = AUTO;
+  };
+
+  EVENT ev4 {
+    MASK = AUTO;
+  };
+
+  ALARM alarm_1 {
+    COUNTER = SystemCounter;
+    ACTION = SETEVENT {
+      EVENT = ev1;
+      TASK = T_chase;
+    };
+    AUTOSTART = TRUE {
+      ALARMTIME = 1; 
+      CYCLETIME = 250;
+      APPMODE = std;
+    };
+  };
+
+  ALARM alarm_2 {
+    COUNTER = SystemCounter;
+    ACTION = SETEVENT {
+      EVENT = ev2;
+      TASK = T_chase;
+    };
+    AUTOSTART = TRUE {
+      ALARMTIME = 250; 
+      CYCLETIME = 250;
+      APPMODE = std;
+    };
+  };
+
+  ALARM alarm_3 {
+    COUNTER = SystemCounter;
+    ACTION = SETEVENT {
+      EVENT = ev3;
+      TASK = T_chase;
+    };
+    AUTOSTART = TRUE {
+      ALARMTIME = 500; 
+      CYCLETIME = 250;
+      APPMODE = std;
+    };
+  };
+
   ISR button {
     CATEGORY = 2;
     PRIORITY = 30;
@@ -54,20 +105,20 @@ CPU my_cpu {
     };
   };
 
-  ALARM alarm_1 {
+  ALARM alarm_4 {
     COUNTER = SystemCounter;
     ACTION = SETEVENT {
-      EVENT = ev1;
-      TASK = T_blink;
+      EVENT = ev4;
+      TASK = T_chase;
     };
     AUTOSTART = TRUE {
-      ALARMTIME = 500; 
-      CYCLETIME = 500;
+      ALARMTIME = 750; 
+      CYCLETIME = 250;
       APPMODE = std;
     };
   };
 
-  TASK T_blink {
+  TASK T_chase {
     PRIORITY = 5;
     AUTOSTART = TRUE {
       APPMODE = std;
@@ -75,6 +126,9 @@ CPU my_cpu {
     ACTIVATION = 1;
     SCHEDULE = FULL;
     EVENT = ev1;
+    EVENT = ev2;
+    EVENT = ev3;
+    EVENT = ev4;
   };
 
 };
