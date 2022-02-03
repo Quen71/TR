@@ -1,29 +1,43 @@
 
 {
-  "alarm" : [],
-  "event" : [],
-  "ioc" : [],
-  "isr" : 
+  "alarm" : 
   [
     
     {
-      "CATEGORY" : 2,
-      "KIND" : "ISR",
-      "NAME" : "button",
-      "PRIORITY" : 72,
-      "SOURCE" : "EXTI0_IRQ",
-      "SOURCE_S" : 
+      "ACTION" : "SETEVENT",
+      "ACTION_S" : 
       {
-        "PIN" : "PA0",
-        "PIN_S" : 
-        {
-          "PULL" : "DOWN",
-          "TRIGGER" : "FALLING"
-        }
+        "EVENT" : "ev1",
+        "TASK" : "T_blink"
       },
-      "STACKSIZE" : 200
+      "AUTOSTART" : "true",
+      "AUTOSTART_S" : 
+      {
+        "ALARMTIME" : 500,
+        "APPMODE" : 
+        [
+          
+          {
+            "VALUE" : "std"
+          }
+        ],
+        "CYCLETIME" : 500
+      },
+      "COUNTER" : "SystemCounter",
+      "NAME" : "alarm_1"
     }
   ],
+  "event" : 
+  [
+    
+    {
+      "MASK" : 1,
+      "NAME" : "ev1",
+      "REF" : 1
+    }
+  ],
+  "ioc" : [],
+  "isr" : [],
   "message" : [],
   "resource" : [],
   "task" : 
@@ -31,7 +45,24 @@
     
     {
       "ACTIVATION" : 1,
-      "AUTOSTART" : "false",
+      "AUTOSTART" : "true",
+      "AUTOSTART_S" : 
+      {
+        "APPMODE" : 
+        [
+          
+          {
+            "VALUE" : "std"
+          }
+        ]
+      },
+      "EVENT" : 
+      [
+        
+        {
+          "VALUE" : "ev1"
+        }
+      ],
       "KIND" : "Task",
       "NAME" : "T_blink",
       "NONPREEMPTABLE" : "false",

@@ -39,22 +39,31 @@ CPU my_cpu {
   
   APPMODE std {};
 
-  ISR button {
-    CATEGORY = 2;
-    PRIORITY = 30;
-    SOURCE = EXTI0_IRQ {
-      PIN = PA0 {
-        PULL = DOWN;
-        TRIGGER = FALLING;
-      };
+  EVENT ev1 {
+    MASK = AUTO;
+  };
+
+  ALARM alarm_1 {
+    COUNTER = SystemCounter;
+    ACTION = SETEVENT {
+      EVENT = ev1;
+      TASK = T_blink;
+    };
+    AUTOSTART = TRUE {
+      ALARMTIME = 500; 
+      CYCLETIME = 500;
+      APPMODE = std;
     };
   };
 
   TASK T_blink {
     PRIORITY = 5;
-    AUTOSTART = FALSE;
+    AUTOSTART = TRUE {
+      APPMODE = std;
+    };
     ACTIVATION = 1;
     SCHEDULE = FULL;
+    EVENT = ev1;
   };
 
 };

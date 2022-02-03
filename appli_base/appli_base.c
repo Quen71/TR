@@ -13,43 +13,14 @@ FUNC(int, OS_APPL_CODE) main(void)
   return 0;
 }
 
-ISR (button)
-{
-  ActivateTask(T_blink);
-  led++;
-  if (led == 4)
-  {
-    led = 0;
-  }
-}
-
 TASK(T_blink)
 {
-  if (led == 0)
+  while (1)
   {
-    ledOn(GREEN);
-    delay(500);
-    ledOff(GREEN);
+    WaitEvent(ev1);
+    ClearEvent(ev1);
+    ledToggle(BLUE);
   }
-  if (led == 1)
-  {
-    ledOn(BLUE);
-    delay(500);
-    ledOff(BLUE);
-  } 
-  if (led == 2)
-  {
-    ledOn(RED);
-    delay(500);
-    ledOff(RED);
-  }
-  if (led == 3)
-  {
-    ledOn(ORANGE);
-    delay(500);
-    ledOff(ORANGE);
-  }
-
   TerminateTask();
 }
 

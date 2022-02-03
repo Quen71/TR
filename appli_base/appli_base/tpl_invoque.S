@@ -745,6 +745,330 @@ ReleaseResource_direct_call:
      */
     pop  {pc}
 
+ /*============================================================================
+  * Service SetEvent
+  */
+.global SetEvent
+.type   SetEvent, %function
+SetEvent:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  SetEvent_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_SetEvent
+    svc  #OSServiceId_SetEvent
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+SetEvent_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_set_event_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
+ /*============================================================================
+  * Service ClearEvent
+  */
+.global ClearEvent
+.type   ClearEvent, %function
+ClearEvent:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  ClearEvent_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_ClearEvent
+    svc  #OSServiceId_ClearEvent
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+ClearEvent_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_clear_event_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
+ /*============================================================================
+  * Service GetEvent
+  */
+.global GetEvent
+.type   GetEvent, %function
+GetEvent:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  GetEvent_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_GetEvent
+    svc  #OSServiceId_GetEvent
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+GetEvent_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_get_event_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
+ /*============================================================================
+  * Service WaitEvent
+  */
+.global WaitEvent
+.type   WaitEvent, %function
+WaitEvent:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  WaitEvent_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_WaitEvent
+    svc  #OSServiceId_WaitEvent
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+WaitEvent_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_wait_event_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
+ /*============================================================================
+  * Service GetAlarmBase
+  */
+.global GetAlarmBase
+.type   GetAlarmBase, %function
+GetAlarmBase:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  GetAlarmBase_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_GetAlarmBase
+    svc  #OSServiceId_GetAlarmBase
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+GetAlarmBase_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_get_alarm_base_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
+ /*============================================================================
+  * Service GetAlarm
+  */
+.global GetAlarm
+.type   GetAlarm, %function
+GetAlarm:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  GetAlarm_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_GetAlarm
+    svc  #OSServiceId_GetAlarm
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+GetAlarm_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_get_alarm_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
+ /*============================================================================
+  * Service SetRelAlarm
+  */
+.global SetRelAlarm
+.type   SetRelAlarm, %function
+SetRelAlarm:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  SetRelAlarm_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_SetRelAlarm
+    svc  #OSServiceId_SetRelAlarm
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+SetRelAlarm_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_set_rel_alarm_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
+ /*============================================================================
+  * Service SetAbsAlarm
+  */
+.global SetAbsAlarm
+.type   SetAbsAlarm, %function
+SetAbsAlarm:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  SetAbsAlarm_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_SetAbsAlarm
+    svc  #OSServiceId_SetAbsAlarm
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+SetAbsAlarm_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_set_abs_alarm_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
+ /*============================================================================
+  * Service CancelAlarm
+  */
+.global CancelAlarm
+.type   CancelAlarm, %function
+CancelAlarm:
+    /*-------------------------------------------------------------------------
+     * Check the ISR_NUMBER field of the PSR
+     * If 0 we are in thread mode and the system call is done by a svc
+     * If not 0 we are in handler mode and the system call is done by
+     * a function call
+     */
+    mrs  r3,IPSR
+    cmp  r3,#0
+    bne  CancelAlarm_direct_call
+    /*-------------------------------------------------------------------------
+     * We are in thread mode so we set r3 to the identifier of the service
+     * and we do a svc
+     */
+    movs r3,#OSServiceId_CancelAlarm
+    svc  #OSServiceId_CancelAlarm
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    bx   lr
+CancelAlarm_direct_call:
+    /*-------------------------------------------------------------------------
+     * We are in handler mode so we do a simple function call
+     */
+    push {lr}
+    bl   tpl_cancel_alarm_service
+    /*-------------------------------------------------------------------------
+     * return from the service wrapper
+     */
+    pop  {pc}
+
 
 #define API_STOP_SEC_CODE
 #include "tpl_as_memmap.h"
