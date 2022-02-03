@@ -43,6 +43,17 @@ CPU my_cpu {
     MASK = AUTO;
   };
 
+  ISR button {
+    CATEGORY = 2;
+    PRIORITY = 30;
+    SOURCE = EXTI0_IRQ {
+      PIN = PA0 {
+        PULL = DOWN;
+        TRIGGER = FALLING;
+      };
+    };
+  };
+
   ALARM alarm_1 {
     COUNTER = SystemCounter;
     ACTION = SETEVENT {

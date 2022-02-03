@@ -13,13 +13,25 @@ FUNC(int, OS_APPL_CODE) main(void)
   return 0;
 }
 
+ISR (button)
+{
+  ActivateTask(T_blink);
+  if (led == 0)
+    led = 1;
+  else
+    led = 0;
+}
+
 TASK(T_blink)
 {
   while (1)
   {
-    WaitEvent(ev1);
-    ClearEvent(ev1);
-    ledToggle(BLUE);
+    if (led == 0)
+    {
+      WaitEvent(ev1);
+      ClearEvent(ev1);
+      ledToggle(BLUE);
+    }
   }
   TerminateTask();
 }

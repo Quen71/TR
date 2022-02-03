@@ -37,7 +37,27 @@
     }
   ],
   "ioc" : [],
-  "isr" : [],
+  "isr" : 
+  [
+    
+    {
+      "CATEGORY" : 2,
+      "KIND" : "ISR",
+      "NAME" : "button",
+      "PRIORITY" : 72,
+      "SOURCE" : "EXTI0_IRQ",
+      "SOURCE_S" : 
+      {
+        "PIN" : "PA0",
+        "PIN_S" : 
+        {
+          "PULL" : "DOWN",
+          "TRIGGER" : "FALLING"
+        }
+      },
+      "STACKSIZE" : 200
+    }
+  ],
   "message" : [],
   "resource" : [],
   "task" : 

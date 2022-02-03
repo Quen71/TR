@@ -111,6 +111,8 @@ SECTIONS {
   /* --- Sections for code of tasks and ISR --- */
     *(.Task_T_blinkCode)
 
+    *(.ISR_buttonCode)
+
   } >FLASH
   . = ALIGN(4);
   appconst : {
@@ -147,6 +149,26 @@ SECTIONS {
       *(.Task_T_blink_SEC_CALIB_UNSPECIFIED)
       *(.Task_T_blink_SEC_CARTO_UNSPECIFIED)
       *(.Task_T_blink_SEC_CONFIG_DATA_UNSPECIFIED)
+      *(.ISR_button_SEC_CONST_32BIT)
+      *(.ISR_button_SEC_CALIB_32BIT)
+      *(.ISR_button_SEC_CARTO_32BIT)
+      *(.ISR_button_SEC_CONFIG_DATA_32BIT)
+      *(.ISR_button_SEC_CONST_16BIT)
+      *(.ISR_button_SEC_CALIB_16BIT)
+      *(.ISR_button_SEC_CARTO_16BIT)
+      *(.ISR_button_SEC_CONFIG_DATA_16BIT)
+      *(.ISR_button_SEC_CONST_8BIT)
+      *(.ISR_button_SEC_CALIB_8BIT)
+      *(.ISR_button_SEC_CARTO_8BIT)
+      *(.ISR_button_SEC_CONFIG_DATA_8BIT)
+      *(.ISR_button_SEC_CONST_BOOLEAN)
+      *(.ISR_button_SEC_CALIB_BOOLEAN)
+      *(.ISR_button_SEC_CARTO_BOOLEAN)
+      *(.ISR_button_SEC_CONFIG_DATA_BOOLEAN)
+      *(.ISR_button_SEC_CONST_UNSPECIFIED)
+      *(.ISR_button_SEC_CALIB_UNSPECIFIED)
+      *(.ISR_button_SEC_CARTO_UNSPECIFIED)
+      *(.ISR_button_SEC_CONFIG_DATA_UNSPECIFIED)
     
     . = ALIGN(4);
     __SEG_STOP_APP_CODE_CONST_RGN = . - 1;
@@ -232,6 +254,13 @@ SECTIONS {
     *(.Task_T_blink_SEC_VAR_POWER_ON_INIT_BOOLEAN)
     *(.Task_T_blink_SEC_VAR_POWER_ON_INIT_UNSPECIFIED)
 
+/* Initialized variables section of ISR button */
+    *(.ISR_button_SEC_VAR_POWER_ON_INIT_32BIT)
+    *(.ISR_button_SEC_VAR_POWER_ON_INIT_16BIT)
+    *(.ISR_button_SEC_VAR_POWER_ON_INIT_8BIT)
+    *(.ISR_button_SEC_VAR_POWER_ON_INIT_BOOLEAN)
+    *(.ISR_button_SEC_VAR_POWER_ON_INIT_UNSPECIFIED)
+
     . = ALIGN(4);
     _edata = .;        /* define a global symbol at data end */
   } >RAM
@@ -270,6 +299,35 @@ SECTIONS {
      __SEG_SIZE_Task_T_blink_VAR_RGN = (__SEG_END_Task_T_blink_VAR_RGN - __SEG_START_Task_T_blink_VAR_RGN) < 32 ? 32 : __SEG_SIZE_Task_T_blink_VAR_RGN;
      __SEG_ALIGN_Task_T_blink_VAR_RGN = __SEG_SIZE_Task_T_blink_VAR_RGN;
   } >RAM
+  .ISR_button_SEC_VAR : {
+    . = ALIGN(__SEG_ALIGN_ISR_button_VAR_RGN);
+    __SEG_START_ISR_button_VAR_RGN = .;
+  /* --- Initialized variables section of ISR button */
+    *(.ISR_button_SEC_VAR_NOINIT_32BIT)
+    *(.ISR_button_SEC_VAR_FAST_32BIT)
+    *(.ISR_button_SEC_VAR_32BIT)
+    *(.ISR_button_SEC_VAR_NOINIT_16BIT)
+    *(.ISR_button_SEC_VAR_FAST_16BIT)
+    *(.ISR_button_SEC_VAR_16BIT)
+    *(.ISR_button_SEC_VAR_NOINIT_8BIT)
+    *(.ISR_button_SEC_VAR_FAST_8BIT)
+    *(.ISR_button_SEC_VAR_8BIT)
+    *(.ISR_button_SEC_VAR_NOINIT_BOOLEAN)
+    *(.ISR_button_SEC_VAR_FAST_BOOLEAN)
+    *(.ISR_button_SEC_VAR_BOOLEAN)
+    *(.ISR_button_SEC_VAR_NOINIT_UNSPECIFIED)
+    *(.ISR_button_SEC_VAR_FAST_UNSPECIFIED)
+    *(.ISR_button_SEC_VAR_UNSPECIFIED)
+     __SEG_END_ISR_button_VAR_RGN = .;
+     __SEG_SIZE_ISR_button_VAR_RGN = (__SEG_END_ISR_button_VAR_RGN - __SEG_START_ISR_button_VAR_RGN) < 4K ? 4K : __SEG_SIZE_ISR_button_VAR_RGN;
+     __SEG_SIZE_ISR_button_VAR_RGN = (__SEG_END_ISR_button_VAR_RGN - __SEG_START_ISR_button_VAR_RGN) < 1K ? 1K : __SEG_SIZE_ISR_button_VAR_RGN;
+     __SEG_SIZE_ISR_button_VAR_RGN = (__SEG_END_ISR_button_VAR_RGN - __SEG_START_ISR_button_VAR_RGN) < 512 ? 512 : __SEG_SIZE_ISR_button_VAR_RGN;
+     __SEG_SIZE_ISR_button_VAR_RGN = (__SEG_END_ISR_button_VAR_RGN - __SEG_START_ISR_button_VAR_RGN) < 256 ? 256 : __SEG_SIZE_ISR_button_VAR_RGN;
+     __SEG_SIZE_ISR_button_VAR_RGN = (__SEG_END_ISR_button_VAR_RGN - __SEG_START_ISR_button_VAR_RGN) < 128 ? 128 : __SEG_SIZE_ISR_button_VAR_RGN;
+     __SEG_SIZE_ISR_button_VAR_RGN = (__SEG_END_ISR_button_VAR_RGN - __SEG_START_ISR_button_VAR_RGN) < 64 ? 64 : __SEG_SIZE_ISR_button_VAR_RGN;
+     __SEG_SIZE_ISR_button_VAR_RGN = (__SEG_END_ISR_button_VAR_RGN - __SEG_START_ISR_button_VAR_RGN) < 32 ? 32 : __SEG_SIZE_ISR_button_VAR_RGN;
+     __SEG_ALIGN_ISR_button_VAR_RGN = __SEG_SIZE_ISR_button_VAR_RGN;
+  } >RAM
 }
 
 /*----------------------------------------------------------------------------*/
@@ -294,6 +352,23 @@ SECTIONS {
     __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 64 ? 64 : __SEG_SIZE_Task_T_blink_STACK_RGN;
     __SEG_SIZE_Task_T_blink_STACK_RGN = (__SEG_END_Task_T_blink_STACK_RGN - __SEG_START_Task_T_blink_STACK_RGN) < 32 ? 32 : __SEG_SIZE_Task_T_blink_STACK_RGN;
     __SEG_ALIGN_Task_T_blink_STACK_RGN = __SEG_SIZE_Task_T_blink_STACK_RGN;
+  } >RAM
+
+  /* --- Section of stack of ISR button  */
+  .ISR_button_SEC_STACK : {
+    . = ALIGN(__SEG_ALIGN_ISR_button_STACK_RGN);
+    __SEG_START_ISR_button_STACK_RGN = .;
+    *(.ISR_buttonStack)
+    . = ALIGN(4);
+    __SEG_END_ISR_button_STACK_RGN = .;
+    __SEG_SIZE_ISR_button_STACK_RGN = (__SEG_END_ISR_button_STACK_RGN - __SEG_START_ISR_button_STACK_RGN) < 4K ? 4K : __SEG_SIZE_ISR_button_STACK_RGN;
+    __SEG_SIZE_ISR_button_STACK_RGN = (__SEG_END_ISR_button_STACK_RGN - __SEG_START_ISR_button_STACK_RGN) < 1K ? 1K : __SEG_SIZE_ISR_button_STACK_RGN;
+    __SEG_SIZE_ISR_button_STACK_RGN = (__SEG_END_ISR_button_STACK_RGN - __SEG_START_ISR_button_STACK_RGN) < 512 ? 512 : __SEG_SIZE_ISR_button_STACK_RGN;
+    __SEG_SIZE_ISR_button_STACK_RGN = (__SEG_END_ISR_button_STACK_RGN - __SEG_START_ISR_button_STACK_RGN) < 256 ? 256 : __SEG_SIZE_ISR_button_STACK_RGN;
+    __SEG_SIZE_ISR_button_STACK_RGN = (__SEG_END_ISR_button_STACK_RGN - __SEG_START_ISR_button_STACK_RGN) < 128 ? 128 : __SEG_SIZE_ISR_button_STACK_RGN;
+    __SEG_SIZE_ISR_button_STACK_RGN = (__SEG_END_ISR_button_STACK_RGN - __SEG_START_ISR_button_STACK_RGN) < 64 ? 64 : __SEG_SIZE_ISR_button_STACK_RGN;
+    __SEG_SIZE_ISR_button_STACK_RGN = (__SEG_END_ISR_button_STACK_RGN - __SEG_START_ISR_button_STACK_RGN) < 32 ? 32 : __SEG_SIZE_ISR_button_STACK_RGN;
+    __SEG_ALIGN_ISR_button_STACK_RGN = __SEG_SIZE_ISR_button_STACK_RGN;
   } >RAM
 
 }
