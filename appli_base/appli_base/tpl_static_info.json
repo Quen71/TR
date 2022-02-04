@@ -4,11 +4,10 @@
   [
     
     {
-      "ACTION" : "SETEVENT",
+      "ACTION" : "ACTIVATETASK",
       "ACTION_S" : 
       {
-        "EVENT" : "ev1",
-        "TASK" : "T_chase"
+        "TASK" : "T_affichage"
       },
       "AUTOSTART" : "true",
       "AUTOSTART_S" : 
@@ -21,22 +20,21 @@
             "VALUE" : "std"
           }
         ],
-        "CYCLETIME" : 250
+        "CYCLETIME" : 1000
       },
       "COUNTER" : "SystemCounter",
       "NAME" : "alarm_1"
     },    
     {
-      "ACTION" : "SETEVENT",
+      "ACTION" : "ACTIVATETASK",
       "ACTION_S" : 
       {
-        "EVENT" : "ev2",
-        "TASK" : "T_chase"
+        "TASK" : "T_period"
       },
       "AUTOSTART" : "true",
       "AUTOSTART_S" : 
       {
-        "ALARMTIME" : 250,
+        "ALARMTIME" : 1,
         "APPMODE" : 
         [
           
@@ -44,106 +42,40 @@
             "VALUE" : "std"
           }
         ],
-        "CYCLETIME" : 250
+        "CYCLETIME" : 100
       },
       "COUNTER" : "SystemCounter",
       "NAME" : "alarm_2"
-    },    
-    {
-      "ACTION" : "SETEVENT",
-      "ACTION_S" : 
-      {
-        "EVENT" : "ev3",
-        "TASK" : "T_chase"
-      },
-      "AUTOSTART" : "true",
-      "AUTOSTART_S" : 
-      {
-        "ALARMTIME" : 500,
-        "APPMODE" : 
-        [
-          
-          {
-            "VALUE" : "std"
-          }
-        ],
-        "CYCLETIME" : 250
-      },
-      "COUNTER" : "SystemCounter",
-      "NAME" : "alarm_3"
-    },    
-    {
-      "ACTION" : "SETEVENT",
-      "ACTION_S" : 
-      {
-        "EVENT" : "ev4",
-        "TASK" : "T_chase"
-      },
-      "AUTOSTART" : "true",
-      "AUTOSTART_S" : 
-      {
-        "ALARMTIME" : 750,
-        "APPMODE" : 
-        [
-          
-          {
-            "VALUE" : "std"
-          }
-        ],
-        "CYCLETIME" : 250
-      },
-      "COUNTER" : "SystemCounter",
-      "NAME" : "alarm_4"
     }
   ],
-  "event" : 
-  [
-    
-    {
-      "MASK" : 1,
-      "NAME" : "ev2",
-      "REF" : 1
-    },    
-    {
-      "MASK" : 2,
-      "NAME" : "ev3",
-      "REF" : 1
-    },    
-    {
-      "MASK" : 4,
-      "NAME" : "ev1",
-      "REF" : 1
-    },    
-    {
-      "MASK" : 8,
-      "NAME" : "ev4",
-      "REF" : 1
-    }
-  ],
+  "event" : [],
   "ioc" : [],
-  "isr" : 
+  "isr" : [],
+  "message" : [],
+  "resource" : 
   [
     
     {
-      "CATEGORY" : 2,
-      "KIND" : "ISR",
-      "NAME" : "button",
-      "PRIORITY" : 72,
-      "SOURCE" : "EXTI0_IRQ",
-      "SOURCE_S" : 
-      {
-        "PIN" : "PA0",
-        "PIN_S" : 
+      "ISRUSAGE" : [],
+      "KIND" : "Resource",
+      "NAME" : "val",
+      "PRIORITY" : 4,
+      "RESOURCEPROPERTY" : "STANDARD",
+      "TASKUSAGE" : 
+      [
+        
         {
-          "PULL" : "DOWN",
-          "TRIGGER" : "FALLING"
+          "VALUE" : "T_affichage"
+        },        
+        {
+          "VALUE" : "T_fond"
+        },        
+        {
+          "VALUE" : "T_period"
         }
-      },
-      "STACKSIZE" : 200
+      ]
     }
   ],
-  "message" : [],
-  "resource" : [],
   "task" : 
   [
     
@@ -160,26 +92,55 @@
           }
         ]
       },
-      "EVENT" : 
+      "KIND" : "Task",
+      "NAME" : "T_fond",
+      "NONPREEMPTABLE" : "false",
+      "PRIORITY" : 1,
+      "RESOURCE" : 
       [
         
         {
-          "VALUE" : "ev1"
-        },        
-        {
-          "VALUE" : "ev2"
-        },        
-        {
-          "VALUE" : "ev3"
-        },        
-        {
-          "VALUE" : "ev4"
+          "VALUE" : "val"
         }
       ],
+      "SCHEDULE" : "FULL",
+      "STACKSIZE" : 300,
+      "USEFLOAT" : "false",
+      "USEINTERNALRESOURCE" : "false"
+    },    
+    {
+      "ACTIVATION" : 1,
+      "AUTOSTART" : "false",
       "KIND" : "Task",
-      "NAME" : "T_chase",
+      "NAME" : "T_period",
       "NONPREEMPTABLE" : "false",
-      "PRIORITY" : 1,
+      "PRIORITY" : 2,
+      "RESOURCE" : 
+      [
+        
+        {
+          "VALUE" : "val"
+        }
+      ],
+      "SCHEDULE" : "FULL",
+      "STACKSIZE" : 300,
+      "USEFLOAT" : "false",
+      "USEINTERNALRESOURCE" : "false"
+    },    
+    {
+      "ACTIVATION" : 1,
+      "AUTOSTART" : "false",
+      "KIND" : "Task",
+      "NAME" : "T_affichage",
+      "NONPREEMPTABLE" : "false",
+      "PRIORITY" : 3,
+      "RESOURCE" : 
+      [
+        
+        {
+          "VALUE" : "val"
+        }
+      ],
       "SCHEDULE" : "FULL",
       "STACKSIZE" : 300,
       "USEFLOAT" : "false",

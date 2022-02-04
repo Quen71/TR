@@ -39,96 +39,58 @@ CPU my_cpu {
   
   APPMODE std {};
 
-  EVENT ev1 {
-    MASK = AUTO;
-  };
-
-  EVENT ev2 {
-    MASK = AUTO;
-  };
-
-  EVENT ev3 {
-    MASK = AUTO;
-  };
-
-  EVENT ev4 {
-    MASK = AUTO;
-  };
-
   ALARM alarm_1 {
     COUNTER = SystemCounter;
-    ACTION = SETEVENT {
-      EVENT = ev1;
-      TASK = T_chase;
+    ACTION = ACTIVATETASK {
+      TASK = T_affichage;
     };
     AUTOSTART = TRUE {
       ALARMTIME = 1; 
-      CYCLETIME = 250;
+      CYCLETIME = 1000;
       APPMODE = std;
     };
   };
 
   ALARM alarm_2 {
     COUNTER = SystemCounter;
-    ACTION = SETEVENT {
-      EVENT = ev2;
-      TASK = T_chase;
+    ACTION = ACTIVATETASK {
+      TASK = T_period;
     };
     AUTOSTART = TRUE {
-      ALARMTIME = 250; 
-      CYCLETIME = 250;
+      ALARMTIME = 1; 
+      CYCLETIME = 100;
       APPMODE = std;
     };
   };
 
-  ALARM alarm_3 {
-    COUNTER = SystemCounter;
-    ACTION = SETEVENT {
-      EVENT = ev3;
-      TASK = T_chase;
-    };
-    AUTOSTART = TRUE {
-      ALARMTIME = 500; 
-      CYCLETIME = 250;
-      APPMODE = std;
-    };
+  RESOURCE val {
+    RESOURCEPROPERTY = STANDARD;
   };
 
-  ISR button {
-    CATEGORY = 2;
-    PRIORITY = 30;
-    SOURCE = EXTI0_IRQ {
-      PIN = PA0 {
-        PULL = DOWN;
-        TRIGGER = FALLING;
-      };
-    };
+  TASK T_affichage {
+    PRIORITY = 10;
+    AUTOSTART = FALSE;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    RESOURCE = val;
   };
 
-  ALARM alarm_4 {
-    COUNTER = SystemCounter;
-    ACTION = SETEVENT {
-      EVENT = ev4;
-      TASK = T_chase;
-    };
-    AUTOSTART = TRUE {
-      ALARMTIME = 750; 
-      CYCLETIME = 250;
-      APPMODE = std;
-    };
-  };
-
-  TASK T_chase {
-    PRIORITY = 5;
+  TASK T_fond {
+    PRIORITY = 1;
     AUTOSTART = TRUE {
       APPMODE = std;
     };
     ACTIVATION = 1;
     SCHEDULE = FULL;
-    EVENT = ev1;
-    EVENT = ev2;
-    EVENT = ev3;
-    EVENT = ev4;
+    RESOURCE = val;
+  };
+
+  TASK T_period {
+    PRIORITY = 5;
+    AUTOSTART = FALSE;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    RESOURCE = val;
   };
 
 };

@@ -14,7 +14,6 @@ extern FUNC(void, OS_CODE) UsageFault_Handler(P2CONST(void, OS_APPL_DATA, AUTOMA
 extern FUNC(void, OS_CODE) tpl_sc_handler(P2CONST(void, OS_APPL_DATA, AUTOMATIC));
 extern FUNC(void, OS_CODE) DebugMonitor_Handler(P2CONST(void, OS_APPL_DATA, AUTOMATIC));
 extern FUNC(void, OS_CODE) tpl_primary_irq_handler_SysTick(P2CONST(void, OS_APPL_DATA, AUTOMATIC));
-extern FUNC(void, OS_CODE) tpl_primary_irq_handler_EXTI0_IRQ(P2CONST(void, OS_APPL_DATA, AUTOMATIC));
 
 /* Interrupt table vector */
 
@@ -41,7 +40,7 @@ __attribute__ ((section(".isr_vector"))) CONST(tpl_it_handler, AUTOMATIC) tpl_it
   (tpl_it_handler)tpl_null_it,
   (tpl_it_handler)tpl_null_it,
   (tpl_it_handler)tpl_null_it,
-  (tpl_it_handler)tpl_primary_irq_handler_EXTI0_IRQ,
+  (tpl_it_handler)tpl_null_it,
   (tpl_it_handler)tpl_null_it,
   (tpl_it_handler)tpl_null_it,
   (tpl_it_handler)tpl_null_it,

@@ -49,7 +49,6 @@ build/appli_base.c.o: appli_base.c \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_interrupt.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_task.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_resource.h \
- /Users/quentinlebreton/git/trampoline//os/tpl_os_event.h \
  /Users/quentinlebreton/git/trampoline//os/tpl_os_alarm.h
 
 /Users/quentinlebreton/git/trampoline//machines/cortex/armv7em/stm32f407/stm32f4discovery/tp.h:
@@ -153,7 +152,5 @@ appli_base/MemMap.h:
 /Users/quentinlebreton/git/trampoline//os/tpl_os_task.h:
 
 /Users/quentinlebreton/git/trampoline//os/tpl_os_resource.h:
-
-/Users/quentinlebreton/git/trampoline//os/tpl_os_event.h:
 
 /Users/quentinlebreton/git/trampoline//os/tpl_os_alarm.h:
